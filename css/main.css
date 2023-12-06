@@ -152,19 +152,21 @@ padding: 70px 0;
   padding: 70px; text-align: center
 }
 
-@media (max-width: 576px) {
-  .gh {
-    flex-direction: column;
-    padding: 20px; text-align: center;
-    margin: 20px;
-  }
-}
+/*@media (max-width: 576px) {*/
+/*  .gh {*/
+/*    flex-direction: column;*/
+/*    padding: 20px; text-align: center;*/
+/*    margin: 20px;*/
+/*  }*/
+/*}*/
 
 @media (max-width: 360px) {
   .gh {
-    flex-direction: column;
-    padding: 20px; text-align: center;
-    margin: 20px;
+    /* flex-direction: column; */
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    /* margin: 20px; */
   }
 }
 .faq-card .card-header {
