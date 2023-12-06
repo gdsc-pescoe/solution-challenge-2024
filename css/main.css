@@ -23,19 +23,24 @@
 }
 
 
-body {
-  font-family: var(--google-sans);
-  color: var(--google-blue);
-}
+/*body {*/
+/*  font-family: var(--google-sans);*/
+/*  color: var(--google-blue);*/
+/*}*/
 
-h1, .display-4 {
-  color: var(--google-red);
-}
+/*h1, .display-4 {*/
+/*  color: var(--google-red);*/
+/*}*/
 
-.lead {
-  color: var(--google-yellow);
-}
+/*.lead {*/
+/*  color: var(--google-yellow);*/
+/*}*/
 
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 .jumbotron {
   background-color: var(--google-green);
 }
@@ -142,6 +147,26 @@ padding: 70px 0;
 
 }
 
+
+.gh{
+  padding: 70px; text-align: center
+}
+
+@media (max-width: 576px) {
+  .gh {
+    flex-direction: column;
+    padding: 20px; text-align: center;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .gh {
+    flex-direction: column;
+    padding: 20px; text-align: center;
+    margin: 20px;
+  }
+}
 .faq-card .card-header {
   background-color: var(--google-green);
   color: white;
@@ -157,6 +182,37 @@ padding: 70px 0;
   color: white;
   text-decoration: none;
 }
+
+.section-divider {
+  border-bottom: 2px solid #999999;
+  /*margin: 50px 0;*/
+}
+
+/*about */
+#about {
+  background-color: var(--google-red);
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+#about h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+#about p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+#about .embed-responsive {
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+
+
 /*hhh*/
 html {
   color: #222;
