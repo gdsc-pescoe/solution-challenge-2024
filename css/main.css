@@ -13,7 +13,7 @@
 
 :root {
   --google-blue: #4285F4;
-  --google-red: #DB4437;
+  --google-red: #ff4c4c;
   --google-yellow: #F4B400;
   --google-green: #0F9D58;
 }
@@ -104,14 +104,14 @@
 #registration button {
   font-size: 1.2em;
   padding: 10px 20px;
-  background-color: var(--google-red);
+  background-color: var(--google-green);
   border: none;
   color: white;
   transition: background-color 0.3s ease;
 }
 
 #registration button:hover {
-  background-color: var(--google-green);
+  background-color: var(--google-red);
 }
 
 .countdown-number {
@@ -206,6 +206,7 @@ padding: 70px 0;
 #about p {
   font-size: 1.2em;
   margin-bottom: 40px;
+  color: white;
 }
 
 #about .embed-responsive {

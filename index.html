@@ -71,18 +71,11 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Resources</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Demo Day</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Winners</a>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="#">FAQ</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Terms & Conditions</a>
-      </li>
+
     </ul>
   </div>
 </nav>
@@ -237,13 +230,15 @@
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="countdown"
-    document.getElementById("countdown").innerHTML = days + " days " + hours + " hours "
+    document.getElementById("countdown").innerHTML = "Ends in " + days + " days " + hours + " hours "
     + minutes + " minutes " + seconds + " seconds ";
 
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(countdownInterval);
       document.getElementById("countdown").innerHTML = "Registration Closed";
+      document.getElementById("countdown").style.color = "red";
+
     }
   }, 1000);
 
