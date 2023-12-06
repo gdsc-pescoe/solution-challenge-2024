@@ -1,8 +1,8 @@
 {
-  "short_name": "",
-  "name": "",
+  "short_name": "GSC 2024",
+  "name": "Google Solution Challenge 2024",
   "icons": [{
-    "src": "icon.png",
+    "src": "img/logo.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
