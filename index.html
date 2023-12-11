@@ -173,6 +173,9 @@
         <h2>Registration</h2>
         <p id="countdown">00 days 00 hours 00 minutes 00 seconds</p>
         <button onclick="Regis()" class="btn btn-primary">Register Now</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrationModal">
+          Open Registration Form
+        </button>
       </div>
     </div>
   </div>
@@ -220,6 +223,55 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</section>-->
+<div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">Registration Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <form id="registrationForm"  action="https://script.google.com/macros/s/AKfycby0-3WYfo0rRID2mAtfNiEheYRBM5bhvDjmFg76QMLZuyyEl8Gn6WYFj8OdSlFRHP8juw/exec" method="post">
+
+    <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="number">Whatsapp</label>
+            <input type="number" class="form-control" id="number" name="number" placeholder="Enter your number">
+          </div>
+          <div class="form-group">
+            <label for="college">College Name</label>
+            <input type="text" class="form-control" id="college" name="college" placeholder="Enter your college name">
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender" name="gender">
+              <option value="">Select...</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="whatsappGroup" name="whatsappGroup">
+            <label class="form-check-label" for="whatsappGroup">Joined WhatsApp Group</label>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
 <script>
   // Set the date we're counting down to
   const countDownDate = new Date("Feb 24, 2024 22:37:25").getTime();
@@ -253,12 +305,32 @@
   }, 1000);
 
 
-  function Regis() {
 
+
+  function Regis() {
 
     window.location = 'https://rebrand.ly/65t88kh';
 
   }
+
+  document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the form from being submitted normally
+
+    var formData = new FormData(e.target);
+    var action = e.target.getAttribute('action');
+
+    fetch(action, {
+      method: 'POST',
+      body: formData
+
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          Regis();
+        }
+      });
+  });
 
   // Display the result in the element with id="countdown"
 
