@@ -45,7 +45,9 @@
   }
 </style>
 <body>
-
+<div id="loader">
+  <div class="spinner"></div>
+</div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img
       alt="GDSC"
@@ -172,7 +174,6 @@
       <div class="col-12 text-center">
         <h2>Registration</h2>
         <p id="countdown">00 days 00 hours 00 minutes 00 seconds</p>
-        <button onclick="Regis()" class="btn btn-primary">Register Now</button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrationModal">
           Open Registration Form
         </button>
@@ -231,7 +232,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <form id="registrationForm"  action="https://script.google.com/macros/s/AKfycby0-3WYfo0rRID2mAtfNiEheYRBM5bhvDjmFg76QMLZuyyEl8Gn6WYFj8OdSlFRHP8juw/exec" method="post">
+    <form action="https://script.google.com/macros/s/AKfycbwNCjtQPjaVZACQsTHGQBtH6J4A8kaA47wTH-CZtboJ7n0BwXL54xkUik4wgymOnIQqTQ/exec"
+          id="registrationForm"
+          method="post">
 
     <div class="modal-body">
           <div class="form-group">
@@ -261,12 +264,28 @@
           </div>
           <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="whatsappGroup" name="whatsappGroup">
-            <label class="form-check-label" for="whatsappGroup">Joined WhatsApp Group</label>
+            <label class="form-check-label" for="whatsappGroup"></label>
+            <a href="https://chat.whatsapp.com/your-group-link" target="_blank" id="whatsappGroupLink">Join WhatsApp Group</a>
+
           </div>
+      <div class="form-group">
+        <p style="color: var(--google-red);">Please Fill out the Google Form you'll get redirect on</p>
+      <ol>
+        <li>
+          Select your association with GDSC
+        </li>
+        <li>
+          Select GDSC : India - PES College of Engineering - Aurangabad
+        </li>
+        <li>
+          Select 17 UN's Goals for your solution </li>
+        <li style="color: var(--google-red);">
+          Don't forget to fill out the Google Form, otherwise your registration is considerd by GDSC </li>
+      </ol>
+      </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Next</button>
       </div>
     </form>
     </div>
@@ -313,8 +332,21 @@
 
   }
 
-  document.getElementById('registrationForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent the form from being submitted normally
+
+
+  // Display the result in the element with id="countdown"
+
+</script>
+<script>
+
+  document.querySelector('#registrationModal form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Show the loader
+    document.getElementById('loader').style.display = 'flex';
+
+    // Close the modal
+    $('#registrationModal').modal('hide');
 
     var formData = new FormData(e.target);
     var action = e.target.getAttribute('action');
@@ -322,20 +354,18 @@
     fetch(action, {
       method: 'POST',
       body: formData
-
     })
       .then(response => response.json())
       .then(data => {
-        if (data.status === 'success') {
+        // Hide the loader
+        document.getElementById('loader').style.display = 'none';
+
+        if (data.result === 'success') {
           Regis();
         }
       });
   });
-
-  // Display the result in the element with id="countdown"
-
 </script>
-
 <!-- jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
