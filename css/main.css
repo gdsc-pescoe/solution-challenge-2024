@@ -176,7 +176,10 @@ padding: 70px 0;
     text-align: center;
     margin-top: 50px;
     /* margin: 20px; */
-
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 
   }
   .row{
@@ -188,6 +191,7 @@ padding: 70px 0;
     /* margin-right: -15px; */
     /* margin-left: -15px; */
     margin: 0px;
+
   }
 
 }
